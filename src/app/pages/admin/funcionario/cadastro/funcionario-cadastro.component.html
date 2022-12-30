@@ -1,0 +1,45 @@
+<mat-card class="h-100">
+  <mat-card-title class="text-center">Funcionário</mat-card-title>
+  <mat-card-content class="w-100 d-flex justify-content-center">
+    <form (ngSubmit)="submit()" [formGroup]="formGroup" class="p-2" style="background-color: #ffffff11">
+      <mat-form-field class="w-100">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Foto</mat-label>
+        <input matInput formControlName="foto" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Idade</mat-label>
+        <input matInput formControlName="idade" type="number">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Cargo</mat-label>
+        <input matInput formControlName="cargo" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Naturalidade</mat-label>
+        <input matInput formControlName="naturalidade" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Ano Admissão</mat-label>
+        <input matInput formControlName="anoAdmissao" type="number">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Hobbie</mat-label>
+        <input matInput formControlName="hobbie" type="text">
+      </mat-form-field>
+
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary" type="submit">{{ getTextButton() }}</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

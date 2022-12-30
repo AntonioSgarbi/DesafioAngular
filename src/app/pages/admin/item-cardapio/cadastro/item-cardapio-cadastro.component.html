@@ -1,0 +1,30 @@
+<mat-card class="h-100">
+  <mat-card-title class="text-center">{{type == 'bebidas' ? 'Bebida' : 'Comida'}}</mat-card-title>
+  <mat-card-content class="w-100 d-flex justify-content-center">
+    <form (ngSubmit)="submit()" [formGroup]="formGroup" class="p-2 vw-100" style="background-color: #ffffff11">
+      <mat-form-field class="w-100">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Foto</mat-label>
+        <input matInput formControlName="foto" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Preço</mat-label>
+        <input matInput formControlName="preco" type="number">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" type="text">
+      </mat-form-field>
+
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary" type="submit">{{ getTextButton() }}</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

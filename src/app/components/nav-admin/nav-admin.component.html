@@ -1,0 +1,15 @@
+<nav class="container-fluid p-0">
+  <img src="/assets/pub.png" class="container-fluid">
+  <ul class="p-0" style="list-style: none">
+    <li *ngFor="let link of links">
+      <a class="d-flex align-items-center" (click)="itemClicked()" [routerLink]="link.path" style="text-decoration: none; color: white">
+        <mat-icon class="mx-2">{{ link.icon }}</mat-icon>
+        <h2 class="m-0">{{ link.title }}</h2>
+      </a>
+    </li>
+    <li class="d-flex align-items-center">
+      <mat-icon class="mx-2">logout</mat-icon>
+        <h2 class="m-0">Logout</h2>
+    </li>
+  </ul>
+</nav>

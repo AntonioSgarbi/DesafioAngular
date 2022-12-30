@@ -1,0 +1,11 @@
+<mat-sidenav-container style="height: 100vh">
+  <mat-sidenav #sidenav mode="push" style="width: 220px">
+    <app-nav-admin (routeClicked)="sidenav.toggle()"></app-nav-admin>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button mat-button (click)="sidenav.toggle()"><mat-icon color="primary">menu</mat-icon></button>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
