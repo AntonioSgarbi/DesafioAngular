@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:4200/api'
+  api: 'https://desafio-mean.herokuapp.com'
+  // api: 'http://localhost:5000'
 
 };
 

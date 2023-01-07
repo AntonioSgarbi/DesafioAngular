@@ -1,0 +1,42 @@
+<nav class="container-fluid p-0">
+  <img src="/assets/pub.png" class="container-fluid">
+  <ul class="p-0" style="list-style: none">
+    <li (click)="itemClicked()" *ngFor="let link of links" class="animate__animated animate__fadeInBottomLeft">
+      <hr>
+      <a class="d-flex align-items-center rm-link-style" [routerLink]="link.path">
+        <mat-icon class="mx-2">{{ link.icon }}</mat-icon>
+        <h2 class="m-0">{{ link.title }}</h2>
+      </a>
+    </li>
+    <li class="d-flex flex-column animate__animated animate__fadeInBottomLeft" *ngIf="!isTokenPresent"
+        (click)="login()">
+      <hr>
+      <a routerLink="/login" class="rm-link-style">
+        <div class="d-flex">
+          <mat-icon class="mx-2">login</mat-icon>
+          <h2 class="m-0">Login</h2>
+        </div>
+      </a>
+      <hr *ngIf="!isTokenPresent">
+    </li>
+
+    <li class="d-flex flex-column animate__animated animate__fadeInBottomLeft" *ngIf="isAdmin">
+      <hr>
+      <a routerLink="/admin/home" class="rm-link-style">
+        <div class="d-flex">
+          <mat-icon class="mx-2">home</mat-icon>
+          <h2 class="m-0">Gerenciar</h2>
+        </div>
+      </a>
+      <hr>
+    </li>
+    <li class="d-flex flex-column animate__animated animate__fadeInBottomLeft" *ngIf="isTokenPresent"
+        (click)="logout()">
+      <div class="d-flex">
+        <mat-icon class="mx-2">logout</mat-icon>
+        <h2 class="m-0">Logout</h2>
+      </div>
+      <hr>
+    </li>
+  </ul>
+</nav>

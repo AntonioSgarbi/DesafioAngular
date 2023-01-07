@@ -1,89 +1,101 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/user/home/home.component';
-import { PublicLayoutComponent } from './pages/user/public-layout/public-layout.component';
-import { AdminLayoutComponent } from './pages/admin/admin-layout/admin-layout.component';
-import { EventoCadastroComponent } from './pages/admin/evento/cadastro/evento-cadastro.component';
-import { EventoListaComponent } from './pages/admin/evento/lista/evento-lista.component';
-import { FuncionarioListaComponent } from './pages/admin/funcionario/lista/funcionario-lista.component';
-import { FuncionarioCadastroComponent } from './pages/admin/funcionario/cadastro/funcionario-cadastro.component';
-import { LoginComponent } from './pages/login/login.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HomeComponent} from './public/pages/home/home.component';
+import {PublicLayoutComponent} from './public/pages/public-layout/public-layout.component';
+import {LoginComponent} from './public/pages/login/login.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { NavUserComponent } from './components/nav-user/nav-user.component';
-import { FornecedorListaComponent } from './pages/admin/fornecedor/lista/fornecedor-lista.component';
-import { FornecedorCadastroComponent } from './pages/admin/fornecedor/cadastro/fornecedor-cadastro.component';
+import {NavPublicComponent} from './public/components/nav-public/nav-public.component';
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
-import { AgendamentoCadastroComponent } from './pages/admin/agendamento/agendamento-cadastro/agendamento-cadastro.component';
-import { AgendamentoListaComponent } from './pages/admin/agendamento/agendamento-lista/agendamento-lista.component';
-import { ItemCardapioListaComponent } from './pages/admin/item-cardapio/lista/item-cardapio-lista.component';
-import { ItemCardapioCadastroComponent } from './pages/admin/item-cardapio/cadastro/item-cardapio-cadastro.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask} from "ngx-mask";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {CardapioComponent} from './public/pages/cardapio/cardapio.component';
+import {EventoComponent} from './public/pages/evento/evento.component';
+import {LoaderComponent} from "./public/components/loader/loader.component";
+import {LoaderInterceptor} from "./interceptor/loader.interceptor";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {EventDialogComponent} from './public/components/event-dialog/event-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import {SearchBarComponent} from "./public/components/search-bar/search-bar.component";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {SearchBarModule} from "./public/components/search-bar/search-bar.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PublicLayoutComponent,
-    AdminLayoutComponent,
-    EventoCadastroComponent,
-    EventoListaComponent,
-    FuncionarioListaComponent,
-    FuncionarioCadastroComponent,
     LoginComponent,
-    NavAdminComponent,
-    NavUserComponent,
-    FornecedorListaComponent,
-    FornecedorCadastroComponent,
-    AgendamentoCadastroComponent,
-    AgendamentoListaComponent,
-    ItemCardapioListaComponent,
-    ItemCardapioCadastroComponent
+    NavPublicComponent,
+    CardapioComponent,
+    EventoComponent,
+    LoaderComponent,
+    EventDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatButtonModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatPaginatorModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        FormsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        NgxMaskDirective,
-        NgxMaskPipe
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    SearchBarModule
+  ],
   providers: [
     {
       provide: MAT_DATE_LOCALE,
-      useValue: 'pt-BR'
-      // useValue: 'en-GB'
+      useValue: 'BR'
     },
-    provideEnvironmentNgxMask()
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    provideEnvironmentNgxMask({
+      dropSpecialCharacters: false
+    })
+  ],
+  exports: [
+    SearchBarComponent
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

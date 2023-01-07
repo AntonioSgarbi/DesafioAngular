@@ -1,11 +1,11 @@
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import { Observable, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from "@angular/router";
-import {TokenService} from "../service/token.service";
+import {TokenService} from "../public/service/token.service";
 
-const TOKEN_HEADER_KEY = 'Authorization';
+const TOKEN_HEADER_KEY = 'authorization';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

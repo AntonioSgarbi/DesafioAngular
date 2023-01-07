@@ -1,0 +1,6 @@
+.main-div {
+  display: grid;
+  gap: 3%;
+  grid-template-columns: repeat( auto-fit, minmax(310px, 1fr) );
+  padding: 5%;
+}

@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+  <mat-form-field class="w-100">
+    <mat-label>{{ placeholder }}</mat-label>
+    <div class="d-flex justify-content-around">
+      <input (ngModelChange)="textChange($event)"
+             [matAutocomplete]="auto"
+             [style]="getValueSelected ? 'color: forestgreen' : 'color: black'"
+             [value]="valueFromInput()"
+             formControlName="name"
+             matInput
+             placeholder="{{ placeholder }}"
+             style="font-weight: bold">
+      <mat-icon (click)="dropSelectedValue()" *ngIf="isObjectNotNull()">close</mat-icon>
+    </div>
+    <input [formControlName]="model" type="hidden">
+  </mat-form-field>
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [displayWith]="displayFn"
+  >
+    <mat-option
+      (onSelectionChange)="optionSelect(item)"
+      *ngFor="let item of filteredList; let i = index"
+    >
+      <span>{{ item.nome }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</form>

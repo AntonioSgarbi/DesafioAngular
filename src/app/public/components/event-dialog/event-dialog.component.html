@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{idRegistrado ? 'Editar' : 'Fazer' }} Reserva</h1>
+
+<div mat-dialog-content>
+  <input [(ngModel)]="dataAgendamento" mask="00/00/0000">
+  <input [(ngModel)]="horaAgendamento" mask="00:00">
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fechar</button>
+  <button mat-button (click)="salvar()">{{idRegistrado ? 'Editar' : 'Salvar' }}</button>
+</div>

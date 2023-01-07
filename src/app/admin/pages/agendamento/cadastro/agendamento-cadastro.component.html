@@ -1,0 +1,31 @@
+<mat-card class="h-100">
+  <mat-card-title class="text-center">Agendamento</mat-card-title>
+  <mat-card-content class="w-100 d-flex justify-content-center">
+    <form (ngSubmit)="submit()" [formGroup]="formGroup" class="p-2 vw-100" style="background-color: #ffffff11">
+
+      <mat-form-field class="w-100">
+        <mat-label>Usuário</mat-label>
+        <input matInput [disabled]="true" formControlName="nomeUsuario" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Evento</mat-label>
+        <input matInput formControlName="nomeEvento" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Data</mat-label>
+        <input matInput formControlName="data" type="text" mask="00/00/0000">
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Hora</mat-label>
+        <input matInput formControlName="hora" type="text" mask="00:00">
+      </mat-form-field>
+
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary" type="submit">{{ getTextButton() }}</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,31 @@
+<nav class="container-fluid p-0">
+  <img src="/assets/pub.png" class="container-fluid">
+  <ul class="p-0" style="list-style: none">
+    <li *ngFor="let link of links" style="margin-top: 1px" class="animate__animated animate__fadeInBottomLeft">
+      <hr>
+      <a class="d-flex align-items-center rm-link-style" (click)="itemClicked()" [routerLink]="link.path">
+        <mat-icon class="mx-2">{{ link.icon }}</mat-icon>
+        <h2 class="m-0">{{ link.title }}</h2>
+      </a>
+    </li>
+
+    <li class="d-flex flex-column animate__animated animate__fadeInBottomLeft">
+      <hr>
+      <a routerLink="/user/home" class="rm-link-style">
+        <div class="d-flex">
+          <mat-icon class="mx-2">home</mat-icon>
+          <h2 class="m-0">Público</h2>
+        </div>
+      </a>
+      <hr>
+    </li>
+    <li class="d-flex flex-column animate__animated animate__fadeInBottomLeft" *ngIf="isTokenPresent"
+        (click)="logout()">
+      <div class="d-flex">
+        <mat-icon class="mx-2">logout</mat-icon>
+        <h2 class="m-0">Logout</h2>
+      </div>
+      <hr>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,25 @@
+.main-div {
+  display: grid;
+  gap: 3%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /*grid-template-columns: 30% 30% 30%;*/
+  padding: 10px;
+  margin-left: 2%;
+}
+
+@media (max-width: 520px) {
+  .main-div {
+    grid-template-columns: 90%;
+    margin-left: 8%;
+  }
+  @media (max-height: 850px) {
+    .main-div {
+      margin-bottom: 15%;
+    }
+  }
+}
+
+.card {
+  display: grid;
+  align-content: center;
+}

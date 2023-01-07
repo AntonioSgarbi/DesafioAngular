@@ -1,0 +1,57 @@
+<div class="p-3">
+  <h1 class="text-center">Agendamentos</h1>
+  <a routerLink="/admin/evento/cadastro" class="rm-link-style">
+    <button mat-raised-button color="primary" class="w-100 mb-2">Novo Agendamento</button>
+  </a>
+  <div class="slide">
+    <table mat-table [dataSource]="dataSource" class="w-100 px-3">
+
+      <ng-container matColumnDef="nomeEvento">
+        <th mat-header-cell *matHeaderCellDef> Nome</th>
+        <td mat-cell *matCellDef="let element"> {{element.nomeEvento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomeUsuario">
+        <th mat-header-cell *matHeaderCellDef> Usuário </th>
+        <td mat-cell *matCellDef="let element">{{element.nomeUsuario}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.data | date: 'dd/MM/yyyy' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef> Hora </th>
+        <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="'../cadastro/' + element._id">
+            <mat-icon color="primary">edit</mat-icon>
+          </a>
+          <mat-icon color="primary" (click)="delete(element._id)">delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+  <div class="slide">
+    <div style="min-width: 430px">
+      <mat-paginator #paginator
+                     [length]="length"
+                     [pageIndex]="pageIndex"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="setPage($event)"
+                     aria-label="Select page"
+                     class="w-100"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

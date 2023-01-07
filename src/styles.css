@@ -1,18 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
-*{
+@import "~animate.css/animate.min.css";
+
+@font-face {
+  font-family: CreamCake;
+  src: url('assets/Cream Cake.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Bonjour;
+  src: url('assets/Bonjour.ttf') format('opentype');
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*background-color: #111111;*/
+}
+
+.bonjour {
+  font-family: Bonjour, sans-serif;
+}
+
+.rm-link-style {
+  text-decoration: none;
+  color: white;
+}
+
+.min-width {
+  min-width: 200px;
 }
 
 
-
-@media (max-width: 732px){
+@media (max-width: 732px) {
   .slide {
     overflow: scroll;
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

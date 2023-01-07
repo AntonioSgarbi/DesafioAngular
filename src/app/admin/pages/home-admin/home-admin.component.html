@@ -1,0 +1,23 @@
+<div class="main-div">
+  <mat-card *ngFor="let item of navLinks" class="animate__animated animate__fadeInBottomRight mb-1 mb-md-3 mb-lg-4">
+    <mat-card-title class="w-100 d-flex align-items-center justify-content-evenly text-center text-center h1 m-2 mt-3">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <p class="ms-4">{{item.model}}</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <hr>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="d-flex justify-content-around m-2">
+        <a class="rm-link-style" [routerLink]="item.links[0].path">
+          <mat-icon>add</mat-icon>
+        </a>
+        <a class="rm-link-style" [routerLink]="item.links[1].path">
+          <mat-icon>list</mat-icon>
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

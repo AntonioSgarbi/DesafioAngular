@@ -1,7 +1,8 @@
 const proxy = [
   {
     context: '/api',
-    target: 'http://localhost:5000',
+    target: 'https://desafio-mean.herokuapp.com',
+    // target: 'http://localhost:5000',
     pathRewrite: {'^/api' : ''}
   }
 ];

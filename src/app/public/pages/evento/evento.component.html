@@ -1,0 +1,17 @@
+<h1 class="text-center mt-2 mb-2 animate__animated animate__fadeInLeftBig" style="font-family: 'Bonjour', sans-serif">Eventos</h1>
+<div class="main-div">
+  <mat-card *ngFor="let evento of eventos" class="animate__animated animate__fadeInBottomRight">
+    <mat-card-title class="d-flex justify-content-around text-center mt-2 mb-2">{{evento.nome | uppercase}}
+
+      <button mat-raised-button *ngIf="isLogged" (click)="openDialog(montarObjeto(evento),'1000ms', '1500ms')">
+        <mat-icon>book</mat-icon>
+        Agendar
+      </button>
+
+    </mat-card-title>
+    <mat-card-subtitle class="ps-3">{{evento.descricao}}</mat-card-subtitle>
+    <mat-card-content class="w-100 p-3 d-flex justify-content-center">
+      <img [src]="evento.foto" style="max-width: 90%">
+    </mat-card-content>
+  </mat-card>
+</div>

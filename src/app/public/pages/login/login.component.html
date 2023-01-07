@@ -1,0 +1,18 @@
+<mat-card class="vh-100 pt-4">
+  <mat-card-title class="text-center text-white"><h1>Login</h1></mat-card-title>
+  <mat-card-content class="w-100 d-flex justify-content-center animate__animated animate__fadeInDown">
+    <form (ngSubmit)="login()" [formGroup]="formGroup" class="p-2" style="background-color: rgba(17,16,16,0.17);">
+      <mat-form-field class="w-100">
+        <mat-label class="text-center text-white">Usuário</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label class="text-center text-white">Senha</mat-label>
+        <input matInput formControlName="senha" type="password">
+      </mat-form-field>
+      <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" type="submit">Entrar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

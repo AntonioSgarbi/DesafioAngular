@@ -1,0 +1,63 @@
+section {
+  margin-top: 25vh;
+}
+
+a {
+  font-size: 7vh;
+  font-family: Bonjour, sans-serif;
+}
+
+.font-title {
+  font-family: 'CreamCake', 'arial', sans-serif;
+  margin-top: 20vh;
+  font-size: 10vh
+}
+@media (min-width: 350px) {
+  a {
+    font-size: 3vh;
+  }
+}
+@media (min-width: 400px) {
+  a {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 600px) {
+  a {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 800px) {
+  a {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 400px){
+  .font-title {
+    margin-top: 20vh;
+    font-size: 8vh;
+  }
+}
+@media (min-width: 600px){
+  .font-title {
+    margin-top: 20vh;
+    font-size: 10vh;
+  }
+}
+
+@media (min-width: 700px) {
+  .font-title {
+    font-size: 12vh;
+  }
+
+}
+
+@media (min-width: 1150px) {
+  .font-title {
+    font-size: 20vh;
+  }
+
+}
