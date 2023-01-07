@@ -2,6 +2,7 @@
   <mat-card-title class="text-center">Usuário</mat-card-title>
   <mat-card-content class="w-100 d-flex justify-content-center">
     <form (ngSubmit)="submit()" [formGroup]="formGroup" class="p-2 vw-100" style="background-color: #ffffff11">
+
       <mat-checkbox formControlName="isAdmin">Administrador</mat-checkbox>
 
       <mat-form-field class="w-100">
@@ -11,7 +12,7 @@
 
       <mat-form-field class="w-100">
         <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf" type="text" mask="000.000.000-00">
+        <input matInput formControlName="cpf" type="text">
       </mat-form-field>
 
       <mat-form-field class="w-100">

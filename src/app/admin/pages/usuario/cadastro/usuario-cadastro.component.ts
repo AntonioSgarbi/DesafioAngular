@@ -51,6 +51,7 @@ export class UsuarioCadastroComponent {
   }
 
   submit() {
+    console.log(this.formGroup.get('isAdmin')!.value)
     if (this.formGroup.valid)
       if (this.id) {
         this.usuarioService.edit(this.id, this.formGroup.value).subscribe({
