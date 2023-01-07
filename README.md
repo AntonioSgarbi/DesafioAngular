@@ -13,8 +13,7 @@
 
 ``ng serve``
 
-
 acesso admin:
 
-#### user: test
+#### login: user | admin
 #### senha: senha123
